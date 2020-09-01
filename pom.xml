@@ -22,9 +22,9 @@
         <version.zeebe.spring>0.23.0</version.zeebe.spring>
 
         <spring.boot.version>2.3.3.RELEASE</spring.boot.version>
-        <hazelcast.exporter.version>0.9.0</hazelcast.exporter.version>
+        <hazelcast.exporter.version>0.6.0</hazelcast.exporter.version>
         <!-- pin Hazelcast version because of spring-boot-dependencies -->
-        <version.hazelcast>4.0.2</version.hazelcast>
+        <version.hazelcast>3.12.8</version.hazelcast>
 
         <!-- release parent settings -->
         <version.java>11</version.java>
@@ -121,6 +121,12 @@
             <groupId>com.hazelcast</groupId>
             <artifactId>hazelcast</artifactId>
             <version>${version.hazelcast}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.21</version>
         </dependency>
 
         <dependency>
@@ -278,36 +284,6 @@
         </plugins>
     </build>
 
-    <profiles>
-        <profile>
-            <id>release</id>
-            <properties>
-                <plugin.version.gpg>1.6</plugin.version.gpg>
-                <gpg.passphrase>${env.GPG_PASS}</gpg.passphrase>
-                <resume>false</resume>
-                <tag>${env.RELEASE_VERSION}</tag>
-                <releaseVersion>${env.RELEASE_VERSION}</releaseVersion>
-                <developmentVersion>${env.DEVELOPMENT_VERSION}</developmentVersion>
-                <arguments>-DskipTests</arguments>
-            </properties>
-            <build>
-                <pluginManagement>
-                    <plugins>
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-gpg-plugin</artifactId>
-                            <configuration>
-                                <gpgArguments>
-                                    <arg>--pinentry-mode</arg>
-                                    <arg>loopback</arg>
-                                </gpgArguments>
-                            </configuration>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
-            </build>
-        </profile>
-    </profiles>
 
     <repositories>
         <repository>

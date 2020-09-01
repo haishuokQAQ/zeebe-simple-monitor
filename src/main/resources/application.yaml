@@ -2,24 +2,23 @@ zeebe:
 
 
   client:
-    broker.contactPoint: 127.0.0.1:26500
+    broker.contactPoint: 10.180.8.171:26500
     security.plaintext: true
 
     worker:
       hazelcast:
-        connection: localhost:5701
+        connection: 10.180.8.171:5701
         connectionTimeout: PT30S
 
 spring:
 
   datasource:
-    url: jdbc:h2:mem:zeebe-monitor;DB_CLOSE_DELAY=-1
-    username: sa
-    password:
-    driverClassName: org.h2.Driver
+    url: jdbc:mysql://10.180.4.18:3306/zeebe_monitor
+    username: mysql
+    password: P@ssw0rd!
+    driverClassName: com.mysql.cj.jdbc.Driver
 
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
 

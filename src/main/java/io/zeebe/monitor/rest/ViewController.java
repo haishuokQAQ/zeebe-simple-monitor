@@ -285,7 +285,7 @@ public class ViewController {
     if (isEnded) {
       dto.setEndTime(Instant.ofEpochMilli(instance.getEnd()).toString());
     }
-
+/*
     if (instance.getParentElementInstanceKey() > 0) {
       dto.setParentWorkflowInstanceKey(instance.getParentWorkflowInstanceKey());
 
@@ -295,7 +295,7 @@ public class ViewController {
               parent -> {
                 dto.setParentBpmnProcessId(parent.getBpmnProcessId());
               });
-    }
+    }*/
 
     final List<String> completedActivities =
         events.stream()
