@@ -33,7 +33,7 @@ public interface WorkflowRepository extends PagingAndSortingRepository<WorkflowE
       nativeQuery = true,
       value =
           "SELECT ELEMENT_ID_ AS elementId, COUNT(*) AS count "
-              + "FROM ELEMENT_INSTANCE "
+              + "FROM element_instance "
               + "WHERE WORKFLOW_KEY_ = :key and INTENT_ in (:intents) and BPMN_ELEMENT_TYPE_ not in (:excludeElementTypes)"
               + "GROUP BY ELEMENT_ID_")
   List<ElementInstanceStatistics> getElementInstanceStatisticsByKeyAndIntentIn(

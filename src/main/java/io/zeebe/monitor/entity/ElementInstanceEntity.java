@@ -19,7 +19,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity(name = "ELEMENT_INSTANCE")
+@Entity(name = "element_instance")
 public class ElementInstanceEntity {
 
   @Id
